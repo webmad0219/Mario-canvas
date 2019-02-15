@@ -7,11 +7,17 @@ var Game = {
     TOP_KEY : 38,
     SPACE : 32
   },
-  start: function (canvadId) {
-    this.canvas = document.getElementById(canvadId);
+  init: function(id){
+    this.canvas = document.getElementById(id);
     this.ctx = this.canvas.getContext("2d");
-    this.fps = 60;
-
+    this.w = window.innerWidth;
+    this.h = window.innerHeight;
+    this.canvas.width = this.w;
+    this.canvas.height = this.h;
+    this.start();
+  },
+  start: function () {
+    
     this.reset();
 
     this.interval = setInterval(function () {
